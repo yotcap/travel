@@ -1,17 +1,23 @@
 <template>
 <div>
-  <div>Home</div>
+  <home-header></home-header>
 </div>
 </template>
 <script>
+import homeHeader from '@/components/header'
+
 export default {
   name: 'Home',
   data () {
     return {
 
     }
+  },
+  components: {
+    homeHeader
   }
 }
 
 </script>
-<style></style>
+<style lang="stylus" scoped>
+</style>
