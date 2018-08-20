@@ -8,7 +8,7 @@
     输入框
   </div>
   <div class="header-right">
-    城市
+    {{ this.city }}
     <span class="iconfont city-icon">&#xe64a;</span>
   </div>
 </div>
@@ -19,6 +19,12 @@ export default {
   name: 'homeHeader',
   data () {
     return {
+    }
+  },
+  props: {
+    city: {
+      type: String,
+      default: '中国'
     }
   }
 }

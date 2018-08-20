@@ -1,0 +1,109 @@
+{
+    "msg": "ok",
+    "code": "10",
+    "data": {
+        "city": "济南",
+        "swiperList": [
+            {
+                "id": "000",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1807/66/e5a5cec881702f02.jpg_750x200_67bb5691.jpg"
+            },
+            {
+                "id": "001",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1808/66/55bc874f100c2d02.jpg_750x200_ac7c05d2.jpg"
+            },
+            {
+                "id": "002",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1806/a1/e645466a5a1c9a02.jpg_750x200_9c489fbd.jpg"
+            }
+        ],
+        "iconList": [
+            {
+                "id": "001",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+                "desc": "热门景点"
+            },
+            {
+                "id": "002",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+                "desc": "热门景点"
+            },
+            {
+                "id": "003",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+                "desc": "热门景点"
+            },
+            {
+                "id": "004",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+                "desc": "热门景点"
+            },
+            {
+                "id": "005",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+                "desc": "热门景点"
+            },
+            {
+                "id": "006",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+                "desc": "热门景点"
+            },
+            {
+                "id": "007",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+                "desc": "热门景点"
+            },
+            {
+                "id": "008",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+                "desc": "热门景点"
+            },
+            {
+                "id": "009",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+                "desc": "热门景点"
+            }
+        ],
+        "recommendList": [
+            {
+                "id": "1000",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/c8/c8fa052a53e569c3b4.img.jpg_200x200_6a28d20a.jpg",
+                "title": "大连圣亚海洋世界",
+                "desc": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            },
+            {
+                "id": "1001",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/c8/c8fa052a53e569c3b4.img.jpg_200x200_6a28d20a.jpg",
+                "title": "大连圣亚海洋世界",
+                "desc": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            },
+            {
+                "id": "1002",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/c8/c8fa052a53e569c3b4.img.jpg_200x200_6a28d20a.jpg",
+                "title": "大连圣亚海洋世界",
+                "desc": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            }
+        ],
+        "weekendList": [
+            {
+                "id": "101",
+                "imgUrl": "http://img1.qunarzz.com/sight/source/1507/c7/dae0666d416570.jpg_r_640x214_8ed0c3f1.jpg",
+                "title": "大连圣亚海洋世界",
+                "desc": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            },
+            {
+                "id": "102",
+                "imgUrl": "http://img1.qunarzz.com/sight/source/1507/c7/dae0666d416570.jpg_r_640x214_8ed0c3f1.jpg",
+                "title": "大连圣亚海洋世界",
+                "desc": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            },
+            {
+                "id": "103",
+                "imgUrl": "http://img1.qunarzz.com/sight/source/1507/c7/dae0666d416570.jpg_r_640x214_8ed0c3f1.jpg",
+                "title": "大连圣亚海洋世界",
+                "desc": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            }
+
+        ]
+    }
+}

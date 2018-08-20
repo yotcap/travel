@@ -4,7 +4,7 @@
             热销推荐
         </div>
         <ul>
-            <li class="item border-bottom" v-for="item of itemList" :key="item.id">
+            <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
                 <img class="item-img" :src="item.imgUrl" />
                 <div class="item-info">
                     <p class="item-title">{{ item.title }}</p>
@@ -19,38 +19,12 @@ export default {
     name: 'homeRecommend',
     data () {
         return {
-            itemList: [
-                {
-                    id: '1001',
-                    imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/c8/c8fa052a53e569c3b4.img.jpg_200x200_6a28d20a.jpg',
-                    title: '大连圣亚海洋世界',
-                    desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                },
-                {
-                    id: '1001',
-                    imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/c8/c8fa052a53e569c3b4.img.jpg_200x200_6a28d20a.jpg',
-                    title: '大连圣亚海洋世界',
-                    desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                },
-                {
-                    id: '1002',
-                    imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/c8/c8fa052a53e569c3b4.img.jpg_200x200_6a28d20a.jpg',
-                    title: '大连圣亚海洋世界',
-                    desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                },
-                {
-                    id: '1003',
-                    imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/c8/c8fa052a53e569c3b4.img.jpg_200x200_6a28d20a.jpg',
-                    title: '大连圣亚海洋世界',
-                    desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                },
-                {
-                    id: '1004',
-                    imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/c8/c8fa052a53e569c3b4.img.jpg_200x200_6a28d20a.jpg',
-                    title: '大连圣亚海洋世界',
-                    desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                }
-            ]
+        }
+    },
+    props: {
+        recommendList: {
+            type: Array,
+            default: []
         }
     }
 }
