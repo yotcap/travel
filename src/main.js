@@ -11,7 +11,8 @@ import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false
-//去除 部分移动端点击延迟
+
+// 去除 部分移动端点击延迟
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
 
