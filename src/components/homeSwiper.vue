@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="item of imgList" :key="item.id">
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
       </swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
@@ -18,22 +18,20 @@ export default {
         pagination: '.swiper-pagination',
         // 是否循环
         loop: true,
-        effect: 'coverflow'
-      },
-      imgList: [
-        {
-          id: '000',
-          imgUrl: require('@/assets/img/1.jpg')
-        },
-        {
-          id: '001',
-          imgUrl: require('@/assets/img/2.jpg')
-        },
-        {
-          id: '002',
-          imgUrl: require('@/assets/img/3.jpg')
-        }
-      ]
+        effect: 'coverflow',
+        autoplay: 2000
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.swiperList.length
+    }
+  },
+  props: {
+    swiperList: {
+      type: Array,
+      default: []
     }
   }
 }

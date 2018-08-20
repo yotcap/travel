@@ -4,7 +4,7 @@
             周末游
         </div>
         <ul>
-            <li class="item" v-for="item of itemList" :key="item.id">
+            <li class="item" v-for="item of weekendList" :key="item.id">
                 <div class="item-img-wrapper">
                     <img class="item-img" :src="item.imgUrl" />
                 </div>
@@ -21,26 +21,12 @@ export default {
     name: 'homeRecommend',
     data () {
         return {
-            itemList: [
-                {
-                    id: '101',
-                    imgUrl: 'http://img1.qunarzz.com/sight/source/1507/c7/dae0666d416570.jpg_r_640x214_8ed0c3f1.jpg',
-                    title: '大连圣亚海洋世界',
-                    desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                },
-                {
-                    id: '102',
-                    imgUrl: 'http://img1.qunarzz.com/sight/source/1507/c7/dae0666d416570.jpg_r_640x214_8ed0c3f1.jpg',
-                    title: '大连圣亚海洋世界',
-                    desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                },
-                {
-                    id: '103',
-                    imgUrl: 'http://img1.qunarzz.com/sight/source/1507/c7/dae0666d416570.jpg_r_640x214_8ed0c3f1.jpg',
-                    title: '大连圣亚海洋世界',
-                    desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                }
-            ]
+        }
+    },
+    props: {
+        weekendList: {
+            type: Array,
+            default: []
         }
     }
 }
