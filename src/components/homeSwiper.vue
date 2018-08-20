@@ -14,10 +14,11 @@ export default {
   data () {
     return {
       swiperOption: {
-        //页码导航
+        // 页码导航
         pagination: '.swiper-pagination',
-        //是否循环
-        loop: true
+        // 是否循环
+        loop: true,
+        effect: 'coverflow'
       },
       imgList: [
         {
