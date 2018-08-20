@@ -3,6 +3,8 @@
   <home-header></home-header>
   <home-swiper></home-swiper>
   <home-icons></home-icons>
+  <home-recommend></home-recommend>
+  <home-weekend></home-weekend>
   <div>tttttttt</div>
 </div>
 </template>
@@ -10,6 +12,8 @@
 import homeHeader from '@/components/header'
 import homeSwiper from '@/components/homeSwiper'
 import homeIcons from '@/components/homeIcons'
+import homeRecommend from '@/components/homeRecommend'
+import homeWeekend from '@/components/homeWeekend'
 
 export default {
   name: 'Home',
@@ -21,7 +25,9 @@ export default {
   components: {
     homeHeader,
     homeSwiper,
-    homeIcons
+    homeIcons,
+    homeRecommend,
+    homeWeekend
   }
 }
 
