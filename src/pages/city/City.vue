@@ -1,10 +1,12 @@
 <template>
     <div>
         <city-header></city-header>
+        <search></search>
     </div>
 </template>
 <script>
 import cityHeader from './components/cityHeader'
+import search from './components/Search'
 
 export default {
     data () {
@@ -12,7 +14,8 @@ export default {
         }
     },
     components: {
-        cityHeader
+        cityHeader,
+        search
     }
 }
 </script>
