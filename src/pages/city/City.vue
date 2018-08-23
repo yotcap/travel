@@ -2,11 +2,15 @@
     <div>
         <city-header></city-header>
         <search></search>
+        <list></list>
+        <alphabet></alphabet>
     </div>
 </template>
 <script>
 import cityHeader from './components/cityHeader'
-import search from './components/Search'
+import Search from './components/Search'
+import List from './components/List'
+import Alphabet from './components/Alphabet'
 
 export default {
     data () {
@@ -15,7 +19,9 @@ export default {
     },
     components: {
         cityHeader,
-        search
+        Search,
+        List,
+        Alphabet
     }
 }
 </script>
