@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="list" ref="wrapper">
+        <div class="list" ref="wrapper" v-if="cityList">
             <div>
                 <div class="item">
                     <div class="item-title border-topbottom">当前城市</div>
@@ -19,60 +19,15 @@
                 <div class="item">
                     <div class="item-title border-topbottom">热门城市</div>
                     <div class="item-child">
-                        <div class="item-child-wrapper">
-                            <div class="i-c-city">济南</div>
-                        </div>
-                        <div class="item-child-wrapper">
-                            <div class="i-c-city">济南</div>
-                        </div>
-                        <div class="item-child-wrapper">
-                            <div class="i-c-city">济南</div>
-                        </div>
-                        <div class="item-child-wrapper">
-                            <div class="i-c-city">济南</div>
+                        <div class="item-child-wrapper" v-for="item of cityList.hotCities" :key="item.id">
+                            <div class="i-c-city">{{ item.name }}</div>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="item-title border-topbottom">A</div>
+                <div class="item" v-for="(items, index) of cityList.cities" :key="index">
+                    <div class="item-title border-topbottom">{{ index }}</div>
                     <div class="i-list">
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                    </div>
-                    <div class="item-title border-topbottom">B</div>
-                    <div class="i-list">
-                        <div class="i-l-item border-bottom">巴中</div>
-                        <div class="i-l-item border-bottom">巴中</div>
-                        <div class="i-l-item border-bottom">巴中</div>
-                        <div class="i-l-item border-bottom">巴中</div>
-                        <div class="i-l-item border-bottom">巴中</div>
-                    </div>
-                    <div class="item-title border-topbottom">C</div>
-                    <div class="i-list">
-                        <div class="i-l-item border-bottom">长沙</div>
-                        <div class="i-l-item border-bottom">长沙</div>
-                        <div class="i-l-item border-bottom">长沙</div>
-                        <div class="i-l-item border-bottom">长沙</div>
-                        <div class="i-l-item border-bottom">长沙</div>
-                    </div>
-                    <div class="item-title border-topbottom">A</div>
-                    <div class="i-list">
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                    </div>
-                    <div class="item-title border-topbottom">A</div>
-                    <div class="i-list">
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
-                        <div class="i-l-item border-bottom">阿拉尔</div>
+                        <div class="i-l-item border-bottom" v-for="item of items" :key="item.id">{{ item.name }}</div>
                     </div>
                 </div>
             </div>
@@ -90,6 +45,12 @@ export default {
     },
     mounted () {
         this.scroll = new Bscroll(this.$refs.wrapper)
+    },
+    props: {
+        cityList: {
+            type: Object,
+            default: {}
+        }
     }
 }
 </script>

@@ -1,11 +1,7 @@
 <template>
     <div>
         <ul class="list">
-            <li class="item">A</li>
-            <li class="item">A</li>
-            <li class="item">A</li>
-            <li class="item">A</li>
-            <li class="item">A</li>
+            <li class="item" v-for="(item, index) of cityList.cities" :key="index">{{ index }}</li>
         </ul>
     </div>
 </template>
@@ -14,6 +10,12 @@ export default {
     name: 'alphabet',
     data () {
         return {
+        }
+    },
+    props: {
+        cityList: {
+            type: Object,
+            default: {}
         }
     }
 }
