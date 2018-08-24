@@ -35,7 +35,7 @@ export default {
             return cities
         }
     },
-    updata () {
+    updated () {
         // 优化性能
         this.startY = this.$refs['A'][0].offsetTop
     },
