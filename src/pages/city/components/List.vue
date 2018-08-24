@@ -24,7 +24,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="item" v-for="(items, index) of cityList.cities" :key="index">
+                <div class="item"
+                    v-for="(items, index) of cityList.cities"
+                    :key="index"
+                    :ref="index"
+                >
                     <div class="item-title border-topbottom">{{ index }}</div>
                     <div class="i-list">
                         <div class="i-l-item border-bottom" v-for="item of items" :key="item.id">{{ item.name }}</div>
@@ -46,10 +50,22 @@ export default {
     mounted () {
         this.scroll = new Bscroll(this.$refs.wrapper)
     },
+    watch: {
+        choiceAlphabet () {
+            if (this.choiceAlphabet) {
+                const element = this.$refs[this.choiceAlphabet][0] // 定位到节点
+                this.scroll.scrollToElement(element)
+            }
+        }
+    },
     props: {
         cityList: {
             type: Object,
             default: {}
+        },
+        choiceAlphabet: {
+            type: String,
+            default: ''
         }
     }
 }
