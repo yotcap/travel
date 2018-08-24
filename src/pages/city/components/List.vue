@@ -54,7 +54,7 @@ export default {
         choiceAlphabet () {
             if (this.choiceAlphabet) {
                 const element = this.$refs[this.choiceAlphabet][0] // 定位到节点
-                this.scroll.scrollToElement(element)
+                this.scroll.scrollToElement(element) // 跳至该节点
             }
         }
     },
