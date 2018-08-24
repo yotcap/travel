@@ -1,7 +1,7 @@
 <template>
     <div>
         <city-header></city-header>
-        <search></search>
+        <search :cities="cities"></search>
         <list :cityList="cityList" :choiceAlphabet="choiceAlphabet"></list>
         <alphabet :cityList="cityList" @aClick="aClick"></alphabet>
     </div>
@@ -17,6 +17,7 @@ export default {
     data () {
         return {
             cityList: {},
+            cities: {},
             choiceAlphabet: ''
         }
     },
@@ -25,6 +26,7 @@ export default {
             .then((res) => {
                 if (res.data.code === 1001) {
                     this.cityList = res.data.data
+                    this.cities = this.cityList.cities
                 }
             })
     },
