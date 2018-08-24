@@ -2,8 +2,8 @@
     <div>
         <city-header></city-header>
         <search></search>
-        <list :cityList="cityList"></list>
-        <alphabet :cityList="cityList"></alphabet>
+        <list :cityList="cityList" :choiceAlphabet="choiceAlphabet"></list>
+        <alphabet :cityList="cityList" @aClick="aClick"></alphabet>
     </div>
 </template>
 <script>
@@ -16,7 +16,8 @@ import axios from 'axios'
 export default {
     data () {
         return {
-            cityList: {}
+            cityList: {},
+            choiceAlphabet: ''
         }
     },
     beforeMount () {
@@ -26,6 +27,11 @@ export default {
                     this.cityList = res.data.data
                 }
             })
+    },
+    methods: {
+        aClick (text) {
+            this.choiceAlphabet = text
+        }
     },
     components: {
         cityHeader,
