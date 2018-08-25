@@ -18,57 +18,59 @@
 </template>
 <script>
 export default {
-    name: 'alphabet',
-    data () {
-        return {
-            isTouched: false,
-            startY: 0,
-            timer: null
-        }
-    },
-    computed: {
-        cities () {
-            const cities = []
-            for (let i in this.cityList.cities) {
-                cities.push(i)
-            }
-            return cities
-        }
-    },
-    updated () {
-        // 优化性能
-        this.startY = this.$refs['A'][0].offsetTop
-    },
-    methods: {
-        handleClick (e) {
-            this.$emit('aClick', e.target.innerText)
-        },
-        handleTouchStart () {
-            this.isTouched = true
-        },
-        handleTouchMove (e) {
-            // 增加 timer ，优化性能
-            if (this.timer) {
-                clearTimeout(this.timer)
-            }
-            setTimeout(() => {
-                const touchY = e.touches[0].clientY -79
-                const indexY = Math.floor((touchY - this.startY) /20)
-                if (indexY >=0 && indexY < this.cities.length) {
-                    this.$emit('aClick', this.cities[indexY])
-                }
-            }, 16)
-        },
-        handleTouchEnd () {
-            this.isTouched = false
-        }
-    },
-    props: {
-        cityList: {
-            type: Object,
-            default: {}
-        }
+  name: 'alphabet',
+  data () {
+    return {
+      isTouched: false,
+      startY: 0,
+      timer: null
     }
+  },
+  computed: {
+    cities () {
+      const cities = []
+      for (let i in this.cityList.cities) {
+        cities.push(i)
+      }
+      return cities
+    }
+  },
+  updated () {
+    // 优化性能
+    this.startY = this.$refs['A'][0].offsetTop
+  },
+  methods: {
+    handleClick (e) {
+      this.$emit('aClick', e.target.innerText)
+    },
+    handleTouchStart () {
+      this.isTouched = true
+    },
+    handleTouchMove (e) {
+      // 增加 timer ，优化性能
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      setTimeout(() => {
+        const touchY = e.touches[0].clientY - 79
+        const indexY = Math.floor((touchY - this.startY) / 20)
+        if (indexY >= 0 && indexY < this.cities.length) {
+          this.$emit('aClick', this.cities[indexY])
+        }
+      }, 16)
+    },
+    handleTouchEnd () {
+      this.isTouched = false
+    }
+  },
+  props: {
+    cityList: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    }
+  }
 }
 </script>
 <style scoped lang="stylus">

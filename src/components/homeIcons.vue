@@ -25,11 +25,10 @@ export default {
       const pages = []
       this.iconList.forEach((item, index) => {
         const page = Math.floor(index / 8)
-        if(!pages[page]) {
-           pages[page] = []
+        if (!pages[page]) {
+          pages[page] = []
         }
         pages[page].push(item)
-        
       })
       return pages
     }
@@ -37,7 +36,9 @@ export default {
   props: {
     iconList: {
       type: Array,
-      default: []
+      default: () => {
+        return []
+      }
     }
   }
 }

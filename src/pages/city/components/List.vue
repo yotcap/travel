@@ -1,73 +1,82 @@
 <template>
-    <div>
-        <div class="list" ref="wrapper" v-if="cityList">
-            <div>
-                <div class="item">
-                    <div class="item-title border-topbottom">当前城市</div>
-                    <div class="item-child">
-                        <div class="item-child-wrapper">
-                            <div class="i-c-city">北京</div>
-                        </div>
-                        <div class="item-child-wrapper">
-                            <div class="i-c-city">北京</div>
-                        </div>
-                        <div class="item-child-wrapper">
-                            <div class="i-c-city">北京</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item-title border-topbottom">热门城市</div>
-                    <div class="item-child">
-                        <div class="item-child-wrapper" v-for="item of cityList.hotCities" :key="item.id">
-                            <div class="i-c-city">{{ item.name }}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item"
-                    v-for="(items, index) of cityList.cities"
-                    :key="index"
-                    :ref="index"
-                >
-                    <div class="item-title border-topbottom">{{ index }}</div>
-                    <div class="i-list">
-                        <div class="i-l-item border-bottom" v-for="item of items" :key="item.id">{{ item.name }}</div>
-                    </div>
-                </div>
+  <div>
+    <div class="list" ref="wrapper" v-if="cityList">
+      <div>
+        <div class="item">
+          <div class="item-title border-topbottom">当前城市</div>
+          <div class="item-child">
+            <div class="item-child-wrapper">
+              <div class="i-c-city">{{ this.$store.state.currentCity }}</div>
             </div>
+          </div>
         </div>
+        <div class="item">
+          <div class="item-title border-topbottom">热门城市</div>
+          <div class="item-child">
+            <div
+              class="item-child-wrapper"
+              v-for="item of cityList.hotCities"
+              :key="item.id"
+              @click="handleCityClick(item.name)"
+            >
+              <div class="i-c-city">{{ item.name }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="item"
+          v-for="(items, index) of cityList.cities"
+          :key="index"
+          :ref="index"
+        >
+          <div class="item-title border-topbottom">{{ index }}</div>
+          <div class="i-list">
+            <div class="i-l-item border-bottom" v-for="item of items" :key="item.id" @click="handleCityClick(item.name)">{{ item.name }}</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 import Bscroll from 'better-scroll'
 
 export default {
-    name: 'cityList',
-    data () {
-        return {
-        }
-    },
-    mounted () {
-        this.scroll = new Bscroll(this.$refs.wrapper)
-    },
-    watch: {
-        choiceAlphabet () {
-            if (this.choiceAlphabet) {
-                const element = this.$refs[this.choiceAlphabet][0] // 定位到节点
-                this.scroll.scrollToElement(element) // 跳至该节点
-            }
-        }
-    },
-    props: {
-        cityList: {
-            type: Object,
-            default: {}
-        },
-        choiceAlphabet: {
-            type: String,
-            default: ''
-        }
+  name: 'cityList',
+  data () {
+    return {
     }
+  },
+  mounted () {
+    this.scroll = new Bscroll(this.$refs.wrapper, { mouseWheel: true, click: true, tap: true })
+  },
+  watch: {
+    choiceAlphabet () {
+      if (this.choiceAlphabet) {
+        const element = this.$refs[this.choiceAlphabet][0] // 定位到节点
+        this.scroll.scrollToElement(element) // 跳至该节点
+      }
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+      // 没有异步操作，而且也很简单，所以可以绕过 dispatch 直接调用 commit
+      // this.$store.dispatch('clickCity', city)
+      this.$store.commit('clickedCity', city)
+      this.$router.push('/')
+    }
+  },
+  props: {
+    cityList: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    },
+    choiceAlphabet: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
 <style scoped lang="stylus">
@@ -105,6 +114,6 @@ export default {
                 text-align: center
     .i-list
         .i-l-item
-            line-height: .76rem 
+            line-height: .76rem
             padding: .1rem .1rem .1rem .2rem
 </style>

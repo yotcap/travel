@@ -18,17 +18,19 @@
 </template>
 <script>
 export default {
-    name: 'homeRecommend',
-    data () {
-        return {
-        }
-    },
-    props: {
-        weekendList: {
-            type: Array,
-            default: []
-        }
+  name: 'homeRecommend',
+  data () {
+    return {
     }
+  },
+  props: {
+    weekendList: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    }
+  }
 }
 </script>
 <style scoped lang="stylus">

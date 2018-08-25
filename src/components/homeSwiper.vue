@@ -31,7 +31,9 @@ export default {
   props: {
     swiperList: {
       type: Array,
-      default: []
+      default: () => {
+        return []
+      }
     }
   }
 }

@@ -6,7 +6,7 @@
         <!-- class 和 ref 命名不能冲突，否则下面的 $ref 获取不到 -->
         <div class="result" v-show="keywords" ref="resultRef">
             <ul>
-                <li v-for="item of resultList" :key="item.id" class="result-item border-bottom">{{ item.name }}</li>
+                <li v-for="item of resultList" :key="item.id" class="result-item border-bottom" @click="handleCityClick(item.name)">{{ item.name }}</li>
                 <li class="result-item border-bottom" v-if="hasNoData">没有找到数据</li>
             </ul>
         </div>
@@ -16,51 +16,59 @@
 import Bscroll from 'better-scroll'
 
 export default {
-    name: 'citySearch',
-    data () {
-        return {
-            keywords: '',
-            timer: null,
-            resultList: []
-        }
-    },
-    computed: {
-        hasNoData () {
-            return !this.resultList.length
-        }
-    },
-    watch: {
-        keywords () {
-            if (this.timer) {
-                clearTimeout(this.timer)
-            }
-            if (!this.keywords) {
-                this.resultList = []
-                return
-            }
-            setTimeout(() => {
-                const result = []
-                for (let i in this.cities) {
-                    this.cities[i].forEach((value) => {
-                        // 通过拼音或汉字查找
-                        if (value.spell.indexOf(this.keywords) > -1 || value.name.indexOf(this.keywords) > -1) {
-                            result.push(value)
-                        }
-                    })
-                    this.resultList = result
-                }
-            }, 100)
-        } 
-    },
-    mounted () {
-        this.scroll = new Bscroll(this.$refs.resultRef)
-    },
-    props: {
-        cities: {
-            type: Object,
-            default: {}
-        }
+  name: 'citySearch',
+  data () {
+    return {
+      keywords: '',
+      timer: null,
+      resultList: []
     }
+  },
+  computed: {
+    hasNoData () {
+      return !this.resultList.length
+    }
+  },
+  watch: {
+    keywords () {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      if (!this.keywords) {
+        this.resultList = []
+        return
+      }
+      setTimeout(() => {
+        const result = []
+        for (let i in this.cities) {
+          this.cities[i].forEach((value) => {
+            // 通过拼音或汉字查找
+            if (value.spell.indexOf(this.keywords) > -1 || value.name.indexOf(this.keywords) > -1) {
+              result.push(value)
+            }
+          })
+          this.resultList = result
+        }
+      }, 100)
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+      this.$store.commit('clickedCity', city)
+      this.$router.push('/')
+    }
+  },
+  mounted () {
+    this.scroll = new Bscroll(this.$refs.resultRef, { mouseWheel: true, click: true, tap: true })
+  },
+  props: {
+    cities: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    }
+  }
 }
 </script>
 <style scoped lang="stylus">
