@@ -16,17 +16,19 @@
 </template>
 <script>
 export default {
-    name: 'homeRecommend',
-    data () {
-        return {
-        }
-    },
-    props: {
-        recommendList: {
-            type: Array,
-            default: []
-        }
+  name: 'homeRecommend',
+  data () {
+    return {
     }
+  },
+  props: {
+    recommendList: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    }
+  }
 }
 </script>
 <style scoped lang="stylus">

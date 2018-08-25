@@ -14,33 +14,33 @@ import Alphabet from './components/Alphabet'
 import axios from 'axios'
 
 export default {
-    data () {
-        return {
-            cityList: {},
-            cities: {},
-            choiceAlphabet: ''
-        }
-    },
-    beforeMount () {
-        axios.get('/api/city.json')
-            .then((res) => {
-                if (res.data.code === 1001) {
-                    this.cityList = res.data.data
-                    this.cities = this.cityList.cities
-                }
-            })
-    },
-    methods: {
-        aClick (text) {
-            this.choiceAlphabet = text
-        }
-    },
-    components: {
-        cityHeader,
-        Search,
-        List,
-        Alphabet
+  data () {
+    return {
+      cityList: {},
+      cities: {},
+      choiceAlphabet: ''
     }
+  },
+  beforeMount () {
+    axios.get('/api/city.json')
+      .then((res) => {
+        if (res.data.code === 1001) {
+          this.cityList = res.data.data
+          this.cities = this.cityList.cities
+        }
+      })
+  },
+  methods: {
+    aClick (text) {
+      this.choiceAlphabet = text
+    }
+  },
+  components: {
+    cityHeader,
+    Search,
+    List,
+    Alphabet
+  }
 }
 </script>
 <style lang="stylus" scoped>
