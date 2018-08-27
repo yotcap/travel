@@ -72,6 +72,7 @@ export default {
   height: .86rem
   line-height: .86rem
   font-size: .32rem
+  z-index: 2
   position: fixed
   top: 0
   left: 0
