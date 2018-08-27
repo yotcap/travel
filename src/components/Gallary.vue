@@ -2,9 +2,9 @@
   <div class="container" @click="fCloseGallry">
     <div class="wrapper">
       <swiper :options="swiperOptions">
-        <swiper-pagination v-for="(item, index) of imgs" :key="index">
+        <swiper-slide v-for="(item, index) of imgs" :key="index">
           <img class="gallary-img" :src="item" />
-        </swiper-pagination>
+        </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
