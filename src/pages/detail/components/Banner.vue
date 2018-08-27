@@ -21,6 +21,7 @@
 import Gallary from '@/components/Gallary'
 
 export default {
+  name: 'DetailBanner',
   data () {
     return {
       isGallaryShow: false,
