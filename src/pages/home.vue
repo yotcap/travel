@@ -28,17 +28,17 @@ export default {
     }
   },
   computed: {
-    // 映射 vuex 中的 state，整个页面调用 state 时，不需要 填写 this.$store.state.XXX
+    // 映射 vuex 中的 state，整个页面调用 state 时，不需要 填写 this.$store.state.XXX，直接写为 this.XXX 即可
     ...mapState(['currentCity'])
   },
   mounted () {
     this.lastCity = this.currentCity
     this.getIndexInfo()
   },
-  activated() { // 使用 keeplive 后，新增的周期
+  activated () { // 使用 keeplive 后，新增的周期
     // 如果新选择的城市与上一次选择的城市不等，则重新调取 json
     if (this.lastCity !== this.currentCity) {
-      this.lastCity = this.currentCity
+      this.lastCity = this.currentCityd
       this.getIndexInfo()
     }
   },
