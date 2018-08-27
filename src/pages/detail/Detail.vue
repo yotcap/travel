@@ -7,10 +7,10 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 import Banner from './components/Banner'
 import Header from './components/Header'
 import List from './components/List'
-import axios from 'axios'
 
 export default {
   name: 'Detail',
