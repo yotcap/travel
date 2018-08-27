@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <!-- 也可使用 exclude ，使页面重新加载 -->
+    <keep-alive exclude="Detail">
       <router-view/>
     </keep-alive>
   </div>

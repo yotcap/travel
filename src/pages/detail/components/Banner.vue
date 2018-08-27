@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="banner" @click="fShowGallary">
-      <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1609/7a/7ae8ee7831836095a3.water.jpg_600x330_5d562f69.jpg" />
+      <img class="banner-img" :src="bannerImg" />
       <div class="banner-info">
-        <div class="banner-title">大连亚圣海洋世界(AAAA景区)</div>
+        <div class="banner-title">{{ title }}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe626;</span>
           15
@@ -13,7 +13,7 @@
     <Gallary
       v-if="isGallaryShow"
       @closeGallary="fCloseGallary"
-      :imgs="imgs"
+      :imgs="gallaryImgs"
     ></Gallary>
   </div>
 </template>
@@ -24,11 +24,7 @@ export default {
   name: 'DetailBanner',
   data () {
     return {
-      isGallaryShow: false,
-      imgs: [
-        'http://img1.qunarzz.com/sight/p0/1609/e4/e45d9cb483478459a3.water.jpg_r_800x800_a044eb00.jpg',
-        'http://img1.qunarzz.com/sight/p0/1606/a7/a7d6ecdcf11a272fb4.water.jpg_r_800x800_257d0e5a.jpg'
-      ]
+      isGallaryShow: false
     }
   },
   methods: {
@@ -37,6 +33,22 @@ export default {
     },
     fCloseGallary () {
       this.isGallaryShow = false
+    }
+  },
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    bannerImg: {
+      type: String,
+      default: ''
+    },
+    gallaryImgs: {
+      type: Array,
+      default () {
+        return []
+      }
     }
   },
   components: {
