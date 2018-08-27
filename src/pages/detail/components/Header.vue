@@ -46,10 +46,10 @@ export default {
   activated () {
     window.addEventListener('scroll', this.fScroll)
   },
-  deactivated() {
+  deactivated () {
     // 及时对全局事件解绑
     window.removeEventListener('scroll', this.fScroll)
-  },
+  }
 }
 </script>
 <style scoped lang="stylus">

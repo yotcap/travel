@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Banner></Banner>
+    <Banner :title="title" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></Banner>
     <Header></Header>
-    <List :list="list"></List>
+    <List :list="categoryList"></List>
     <div class="content"></div>
   </div>
 </template>
@@ -10,32 +10,37 @@
 import Banner from './components/Banner'
 import Header from './components/Header'
 import List from './components/List'
+import axios from 'axios'
 
 export default {
-  name: 'Detali',
+  name: 'Detail',
   data () {
     return {
-      list: [
-        {
-          title: '成人票',
-          children: [
-            {
-              title: '成人票-单人',
-              children: [
-                {
-                  title: '成人票-单人-A'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          title: '儿童票'
-        },
-        {
-          title: '双人票'
+      title: '',
+      bannerImg: '',
+      gallaryImgs: [],
+      categoryList: []
+    }
+  },
+  mounted () {
+    this.fGetJson()
+  },
+  methods: {
+    fGetJson () {
+      // axios.get('/api/detail.json' + this.$route.params.id)
+      axios.get('/api/detail.json', {
+        params: {
+          id: this.$route.params.id
         }
-      ]
+      }).then((res) => {
+        if (res.data.code === 2333) {
+          const data = res.data.data
+          this.title = data.sightName
+          this.bannerImg = data.bannerImg
+          this.gallaryImgs = data.gallaryImgs
+          this.categoryList = data.categoryList
+        }
+      })
     }
   },
   components: {

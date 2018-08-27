@@ -11,5 +11,9 @@ export default new Router({
     {path: '/', name: 'home', component: Home},
     {path: '/city', name: 'city', component: City},
     {path: '/detail/:id', name: 'detail', component: Detail}
-  ]
+  ],
+  // 进入新页面，重置页面滚动位置
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
