@@ -2,7 +2,7 @@
   <div>
     <transition>
       <slot></slot>
-    </transition>  
+    </transition>
   </div>
 </template>
 <script>
