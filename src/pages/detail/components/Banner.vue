@@ -10,14 +10,18 @@
         </div>
       </div>
     </div>
-    <Gallary
-      v-if="isGallaryShow"
-      @closeGallary="fCloseGallary"
-      :imgs="gallaryImgs"
-    ></Gallary>
+    <!-- gallary 添加动画效果 -->
+    <fade-animation>
+      <Gallary
+        v-if="isGallaryShow"
+        @closeGallary="fCloseGallary"
+        :imgs="gallaryImgs"
+      ></Gallary>
+    </fade-animation>
   </div>
 </template>
 <script>
+import FadeAnimation from '@/components/FadeAnimation'
 import Gallary from '@/components/Gallary'
 
 export default {
@@ -52,7 +56,8 @@ export default {
     }
   },
   components: {
-    Gallary
+    Gallary,
+    FadeAnimation
   }
 }
 </script>
